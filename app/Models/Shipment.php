@@ -22,7 +22,10 @@ class Shipment extends Model
         }
     }
 
-
+    public function journalEntities()
+    {
+        return $this->hasMany(JournalEntity::class);
+    }
     
 
 }

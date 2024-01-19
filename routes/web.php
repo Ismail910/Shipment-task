@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\JournalEntityController;
+use App\Http\Controllers\ShipmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/shipments', [ShipmentController::class, 'index'])->name('shipments.index');
+    Route::get('/shipments/{shipment}', [ShipmentController::class, 'show'])->name('shipments.show');
+    Route::get('/shipments/create', [ShipmentController::class, 'create'])->name('shipments.create');
+    Route::post('/shipments', [ShipmentController::class, 'store'])->name('shipments.store');
+    Route::get('/shipments/{shipment}/edit', [ShipmentController::class, 'edit'])->name('shipments.edit');
+    Route::put('/shipments/{shipment}', [ShipmentController::class, 'update'])->name('shipments.update');
+    Route::delete('/shipments/{shipment}', [ShipmentController::class, 'destroy'])->name('shipments.destroy');
+    Route::get('/journal-entities', [JournalEntityController::class, 'index'])->name('journal-entities.index');
+    Route::get('/journal-entities/{journalEntity}', [JournalEntityController::class, 'show'])->name('journal-entities.show');
+    Route::get('/journal-entities/create', [JournalEntityController::class, 'create'])->name('journal-entities.create');
+    Route::post('/journal-entities', [JournalEntityController::class, 'store'])->name('journal-entities.store');
+    Route::get('/journal-entities/{journalEntity}/edit', [JournalEntityController::class, 'edit'])->name('journal-entities.edit');
+    Route::put('/journal-entities/{journalEntity}', [JournalEntityController::class, 'update'])->name('journal-entities.update');
+    Route::delete('/journal-entities/{journalEntity}', [JournalEntityController::class, 'destroy'])->name('journal-entities.destroy');
+});
+
+
