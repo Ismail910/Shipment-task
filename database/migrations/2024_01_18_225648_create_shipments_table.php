@@ -16,8 +16,9 @@ return new class extends Migration {
             $table->string('shipper');
             $table->string('image')->nullable();
             $table->float('weight');
+            $table->float('price');
             $table->text('description');
-            $table->enum('status', ['Pending', 'Progress', 'Done']);
+            $table->enum('status', ['Pending', 'Progress', 'Done'])->default('Pending');
             $table->timestamps();
         });
     }

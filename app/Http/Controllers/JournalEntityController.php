@@ -5,15 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\JournalEntity;
 use App\Http\Requests\StoreJournalEntityRequest;
 use App\Http\Requests\UpdateJournalEntityRequest;
+use App\Models\Shipment;
 
 class JournalEntityController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+   
     public function index()
     {
-        //
+      
     }
 
     /**

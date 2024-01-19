@@ -11,7 +11,7 @@ class UpdateShipmentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class UpdateShipmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'shipper' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'weight' => 'required|numeric',
+            'description' => 'required|string',
         ];
     }
 }
