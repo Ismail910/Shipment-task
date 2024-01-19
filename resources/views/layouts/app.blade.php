@@ -85,8 +85,7 @@
 
                             <a href="{{ route('shipments.index') }}"
                                 class="list-group-item list-group-item-action bg-light">Shipment</a>
-                            <a href="{{ route('journal-entities.index') }}"
-                                class="list-group-item list-group-item-action bg-light">Journal Entities</a>
+                           
 
                         </div>
                     </div>

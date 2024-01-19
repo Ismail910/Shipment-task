@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/shipments/{shipment}', [ShipmentController::class, 'update'])->name('shipments.update');
     Route::delete('/shipments/{shipment}', [ShipmentController::class, 'destroy'])->name('shipments.destroy');
     Route::get('/journal-entities', [JournalEntityController::class, 'index'])->name('journal-entities.index');
-    Route::get('/journal-entities/{journalEntity}', [JournalEntityController::class, 'show'])->name('journal-entities.show');
+    Route::get('/journal-entities/{journalEntity}/show', [JournalEntityController::class, 'show'])->name('journal-entities.show');
     Route::get('/journal-entities/create', [JournalEntityController::class, 'create'])->name('journal-entities.create');
     Route::post('/journal-entities', [JournalEntityController::class, 'store'])->name('journal-entities.store');
     Route::get('/journal-entities/{journalEntity}/edit', [JournalEntityController::class, 'edit'])->name('journal-entities.edit');

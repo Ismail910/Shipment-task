@@ -5,7 +5,7 @@
 <div id="app">
 
 
-    <!-- Flash Messages -->
+   
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}

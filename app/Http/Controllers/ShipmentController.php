@@ -93,25 +93,25 @@ class ShipmentController extends Controller
      */
 
 
-     public function update(UpdateShipmentRequest $request, Shipment $shipment, ImageUploadService $uploadService)
-     {
-         try {
-             $data = $request->validated();
-     
-             if ($request->hasFile('image')) {
-                 $data['image'] = $uploadService->uploadImage($request->file('image'), 'shipments');
-             }
-     
-             $shipment->fill($data);
-             $shipment->setPriceBasedOnWeight();
-             $shipment->save();
-     
-             return redirect()->route('shipments.index')->with('success', 'Shipment updated successfully.');
-         } catch (\Exception $e) {
-             return redirect()->route('shipments.index')->with('error', 'Failed to update shipment.');
-         }
-     }
-     
+    public function update(UpdateShipmentRequest $request, Shipment $shipment, ImageUploadService $uploadService)
+    {
+        try {
+            $data = $request->validated();
+
+            if ($request->hasFile('image')) {
+                $data['image'] = $uploadService->uploadImage($request->file('image'), 'shipments');
+            }
+
+            $shipment->fill($data);
+            $shipment->setPriceBasedOnWeight();
+            $shipment->save();
+
+            return redirect()->route('shipments.index')->with('success', 'Shipment updated successfully.');
+        } catch (\Exception $e) {
+            return redirect()->route('shipments.index')->with('error', 'Failed to update shipment.');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      */
